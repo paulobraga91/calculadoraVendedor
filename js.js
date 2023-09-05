@@ -32,6 +32,7 @@ btnConsultar.addEventListener('click',function(e){
         return
     }
 
+   
     if(quantidadeEstagiario/quantidadeFuncionarios >= .5 && quantidadeEstagiario/quantidadeFuncionarios <= 1.4){
         proporcaoFixo = 80
         proporcaoEstagiario = 20
@@ -52,6 +53,9 @@ btnConsultar.addEventListener('click',function(e){
     let valorFunc = (((valorSemMascara*proporcaoFixo)/100)/quantidadeFuncionarios).toFixed(2)
     let valorEstagio = (((valorSemMascara*proporcaoEstagiario)/100)/quantidadeEstagiario).toFixed(2)
     
+    if(valorFunc == NaN || valorEstagio == NaN){
+        return
+    }
     
     viewValor.textContent = `R$ ${valorFunc}`
     viewEsta.textContent = `R$ ${valorEstagio}`
