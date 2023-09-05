@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="Pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Calculadora de Vendas</title>
+</head>
+<body>
+
+    
+    <div class="app">
+        <h1>Calculadora de vendas</h1>
+
+        <form action="">
+
+            <div class="inputWraper">   
+            <label for="venda">Meta do Dia:</label>
+            <input class="inputValor" type="text" placeholder="R$" required>
+            </div> 
+
+            <div class="inputWraper">   
+                <label for="func">Quantidade Vendedores:</label>
+                 <input id="func" type="number" class="inputQtdVendedores" required>
+                
+            </div>
+
+             <div class="inputWraper">   
+                
+                <label for="">Quantidade de estagiários?</label>
+                <input type="number" id="funcEstagiario"  class="inputEstagiarios" placeholder="Quantos?"></div>
+            
+            
+            
+        
+
+        </form>
+
+           <div class="buttonArea">
+            <button id="btnConsultar">Consultar</button>
+           </div>
+            
+        <div class="hiden">
+        <div class="resposta">
+            <p>Quantidade total de vendedores <span id="viewFunc">QTD: XXX</span></p>
+            <p>Valor individual para cada Funcionário <span id="viewValor">R$ XXXX</span></p>
+            <p id="ViewEstaTexto">Valor Individual para estagiário <span id="viewEsta">XXX</span></p>
+        </div>
+    </div>
+    
+
+
+    </div>
+</div>
+    
+    
+
+    <script src="js.js"></script>
+</body>
+</html>
