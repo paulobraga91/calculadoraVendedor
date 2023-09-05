@@ -43,11 +43,12 @@ form{
 .buttonArea{
     display: flex;
     padding: 1rem;
+    gap: 1rem;
     
 }
 
 button{
-    width: 15,0rem;
+    width: 12rem;
     height: 5rem;
     padding: 1rem;
     background-color: rgb(63,94,251);

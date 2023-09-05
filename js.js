@@ -1,4 +1,5 @@
 const btnConsultar = document.getElementById('btnConsultar')
+const btnlimpar = document.getElementById('btnLimpar')
 
 const viewFunc = document.getElementById('viewFunc')
 const viewEsta = document.getElementById('viewEsta')
@@ -19,10 +20,15 @@ btnConsultar.addEventListener('click',function(e){
     let quantidadeFuncionarios = Number(func.value)
     let quantidadeEstagiario = Number(funcEstagiario.value)
     let proporcaoFixo, proporcaoEstagiario
-
+    let valorSemMascara = removeMascara(valorVenda)
 
     if(func.value == null || func.value == 0){
         alert('Insira a quantidade de funcionários')
+        return
+    }
+
+    if(valorSemMascara == 0){
+        alert('Digite o valor da meta do dia')
         return
     }
 
@@ -41,7 +47,7 @@ btnConsultar.addEventListener('click',function(e){
         proporcaoFixo = 100
     }
 
-    let valorSemMascara = removeMascara(valorVenda)
+   
     
     let valorFunc = (((valorSemMascara*proporcaoFixo)/100)/quantidadeFuncionarios).toFixed(2)
     let valorEstagio = (((valorSemMascara*proporcaoEstagiario)/100)/quantidadeEstagiario).toFixed(2)
@@ -55,6 +61,17 @@ btnConsultar.addEventListener('click',function(e){
         resposta.classList.remove('hiden')
     }
    
+
+
+})
+
+btnlimpar.addEventListener('click', function(){
+    if (!resposta.classList.contains('hiden')){
+        resposta.classList.add('hiden')
+    }   
+    valor.value = ''
+    func.value = ''
+    funcEstagiario.value = ''
 
 
 })
