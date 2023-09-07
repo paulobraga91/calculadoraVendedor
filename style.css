@@ -80,6 +80,7 @@ form input{
 
 h1{
     padding: 3rem;
+    font-size: clamp(1rem, 2.5vw, 2.6rem);
 }
 
 label{
