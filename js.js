@@ -4,7 +4,7 @@ const btnlimpar = document.getElementById('btnLimpar')
 const viewFunc = document.getElementById('viewFunc')
 const viewEsta = document.getElementById('viewEsta')
 const viewValor = document.getElementById('viewValor')
-const viewEstaText = document.getElementById('ViewEstaTexto')
+const viewEstaText = document.querySelectorAll('.ViewEstaTexto')
 
 
 let func = document.getElementById('func')
@@ -21,38 +21,45 @@ btnConsultar.addEventListener('click',function(e){
     let quantidadeEstagiario = Number(funcEstagiario.value)
     let proporcaoFixo, proporcaoEstagiario
     let valorSemMascara = removeMascara(valorVenda)
+    
 
     if(func.value == null || func.value == 0){
         alert('Insira a quantidade de funcionários')
         return
     }
 
-    if(valorSemMascara == 0){
+    if(valorSemMascara == null||valorSemMascara == 0){
         alert('Digite o valor da meta do dia')
         return
     }
 
-   
-    if(quantidadeEstagiario/quantidadeFuncionarios >= .5 && quantidadeEstagiario/quantidadeFuncionarios <= 1.4){
-        proporcaoFixo = 80
-        proporcaoEstagiario = 20
-    } else if(quantidadeEstagiario/quantidadeFuncionarios < .5){
+
+    ratio = quantidadeEstagiario/quantidadeFuncionarios
+
+    if(quantidadeEstagiario == 0 && quantidadeFuncionarios > 0){
+        proporcaoEstagiario = 0
+        proporcaoFixo = 100
+        viewEstaText[0].classList.add('hiden')
+
+    } else if( quantidadeEstagiario > 0 ){
+       viewEstaText[0].classList.remove('hiden')
+    }    
+    
+    if(ratio < .5){
         proporcaoEstagiario = 10
         proporcaoFixo = 90
-    }else if(quantidadeEstagiario/quantidadeFuncionarios > 1.5){
+    }else if(ratio >= .5 && ratio <= 1.4){
+        proporcaoFixo = 80
+        proporcaoEstagiario = 20
+    }else if(ratio > 1.5){
         proporcaoEstagiario = 40
         proporcaoFixo = 60
-    }else if(quantidadeEstagiario==0){
-        proporcaoEstagiario = 0
-        valor
-        proporcaoFixo = 100
     }
 
-   
-    
+
     let valorFunc = (((valorSemMascara*proporcaoFixo)/100)/quantidadeFuncionarios).toFixed(2)
     let valorEstagio = (((valorSemMascara*proporcaoEstagiario)/100)/quantidadeEstagiario).toFixed(2)
-    
+  
     if(valorFunc == NaN || valorEstagio == NaN){
         return
     }
@@ -76,6 +83,7 @@ btnlimpar.addEventListener('click', function(){
     valor.value = ''
     func.value = ''
     funcEstagiario.value = ''
+    
 
 
 })
