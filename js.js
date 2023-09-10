@@ -55,9 +55,10 @@ btnConsultar.addEventListener('click',function(e){
         proporcaoFixo = 60
     }
 
-    let valorFunc = (((valorSemMascara*proporcaoFixo)/100)/quantidadeFuncionarios)
-    let valorEstagio = (((valorSemMascara*proporcaoEstagiario)/100)/quantidadeEstagiario)
-  
+    let valorFunc = (((valorSemMascara*proporcaoFixo)/100)/quantidadeFuncionarios).toFixed(2)
+    let valorEstagio = (((valorSemMascara*proporcaoEstagiario)/100)/quantidadeEstagiario).toFixed(2)
+    valorFunc = valorFunc.replace('.',',')
+    valorEstagio = valorEstagio.replace('.',',') 
        
     viewValor.textContent = `R$ ${valorFunc}`
     viewEsta.textContent = `R$ ${valorEstagio}`
@@ -67,8 +68,6 @@ btnConsultar.addEventListener('click',function(e){
         resposta.classList.remove('hiden')
     }
 })
-
-
 
 btnlimpar.addEventListener('click', function(){
     if (!resposta.classList.contains('hiden')){
