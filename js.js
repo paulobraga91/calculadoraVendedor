@@ -59,11 +59,11 @@ btnConsultar.addEventListener('click',function(e){
     let valorEstagio = (((valorSemMascara*proporcaoEstagiario)/100)/quantidadeEstagiario).toFixed(2)
     valorFunc = valorFunc.replace('.',',')
     valorEstagio = valorEstagio.replace('.',',') 
-       
+    
+    viewFunc.textContent = `Estagiários(${quantidadeEstagiario}) + Fixos(${quantidadeFuncionarios}) = ${quantidadeEstagiario+quantidadeFuncionarios} `
     viewValor.textContent = `R$ ${valorFunc}`
     viewEsta.textContent = `R$ ${valorEstagio}`
-    viewFunc.textContent = `Estagiários(${quantidadeEstagiario}) + Fixos(${quantidadeFuncionarios}) = ${quantidadeEstagiario+quantidadeFuncionarios} `
-
+    
     if (resposta.classList.contains('hiden')){
         resposta.classList.remove('hiden')
     }
